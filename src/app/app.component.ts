@@ -66,6 +66,14 @@ export class AppComponent implements OnInit {
   }
 
   getRepos(): void {
+    this.getApiService
+      .getUserRepos(this.username.split(" ").join(""))
+      .subscribe((res) => {
+        this.repos = res.body;
+      });
+  }
+
+  getContributors(): void {
     
   }
 }
