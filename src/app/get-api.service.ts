@@ -1,33 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ApiInterface } from './api-interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetApiService {
 
-  BASE_URL:any  ='https://api.github.com';
+  private username: string | undefined;
+  constructor(private http: HttpClient) {}
 
-  REPOS_URL:any = "https://api.github.com/users/mojombo/repos"
-
-  constructor(private http:HttpClient) {
-
-   }
-
-   getUsers():Observable<any>{
-     return this.http.get<any>(this.BASE_URL + '/users/KellyKiiru')
-
-   }
-
-   getRepos():Observable<any>{
-    return this.http.get<any>(this.BASE_URL+'/users/KellyKiiru/repos')
-
+  searchUsers(name: string) {
+    return this.http.get<any>('https://api.github.com/search/users?q=' + name, {
+      observe: 'response',
+    });
   }
 
-  //  getRepos():Observable<ApiInterface>{
-  //    return this.http.get<any>(this.REPOS_URL )
-  //  }
-}
+  getProfile(name: string) {
+    return this.http.get<any>('https://api.github.com/users/' + name, {
+      observe: 'response',
+    });
+  }
 
+  getUserRepos(name: string) {
+    return this.http.get<any>(
+      'https://api.github.com/users/' + name + '/repos?per_page=150',
+      { observe: 'response' }
+    );
+  }
+
+  getContributors(name: string, repo: string) {
+    return this.http.get<any>(
+      'https://api.github.com/repos/' + name + '/' + repo + '/contributors',
+      { observe: 'response' }
+    );
+  }
+
+  
+}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GetApiService } from '../get-api.service';
-import { ApiInterface } from '../api-interface';
 
 @Component({
   selector: 'app-repositories',
@@ -8,14 +7,19 @@ import { ApiInterface } from '../api-interface';
   styleUrls: ['./repositories.component.css']
 })
 export class RepositoriesComponent implements OnInit {
-  users:ApiInterface[]=[]
 
+  profile: any;
+  repos: any;
+  username: string | undefined ;
+  error: Boolean = false;
+  loading = false;
+  usersList: any;
+  open = false;
+  
   constructor(private userService:GetApiService) { }
 
   ngOnInit(): void {
-    this.userService.getRepos().subscribe(
-       data => console.log(data)
-    )
+   
   }
 
 }
