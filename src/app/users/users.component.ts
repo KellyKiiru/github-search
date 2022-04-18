@@ -10,7 +10,7 @@ import { GetApiService } from '../get-api.service';
 
 export class UsersComponent implements OnInit {
 
-  username = 'KellyKiiru'
+  username = ''
   
   user!:any;
   repo!:any;

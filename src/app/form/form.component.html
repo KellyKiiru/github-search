@@ -1,1 +1,29 @@
-<p>form works!</p>
+<div class="container-fluid">
+    
+
+<div class="row justify-content-center mb-2">
+    <div class="search d-block">
+
+        <form action="" (ngSubmit)="inputClick(username)">
+            <input class="form-control form1" type="search" placeholder="Search" id="found"
+                name="username" autocomplete="off" [(ngModel)]="username" >
+        </form>
+
+        <button class="btn btn-info" type="submit">search</button>
+       
+  
+        <div class="search-listing" >
+            <div class="list-item" >
+                
+  
+                <span> </span>
+  
+            </div>
+        </div>
+    </div>
+  
+  </div>
+   <!-- <span class="searchButton" >
+            <i class='bx bx-search-alt' style=" color:#3c4043; font-size: xx-large;"></i>
+        </span> -->
+</div>
