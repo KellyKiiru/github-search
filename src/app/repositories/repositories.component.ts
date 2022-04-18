@@ -30,13 +30,15 @@ export class RepositoriesComponent implements OnInit {
 
   constructor(public getApiService: GetApiService) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   searchUsers() {
     this.getApiService.searchUsers(this.username.split(' ').join('')).subscribe(
       (res) => {
         console.log(res);
+
+        console.log('this has been interesting');
 
         this.usersList = res.body.items;
       },

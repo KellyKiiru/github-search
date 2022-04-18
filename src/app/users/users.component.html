@@ -1,12 +1,26 @@
-<div style=" display: flex; justify-content: center; width: 100%;margin-top:20px; border: 2px solid red;" class="">
-    <input class="form-control" style="text-align: start; width: 40%; border-radius: 20px; box-shadow: 0 2px 1px rgba(0,0,0,0.09), 
+
+<div class="row justify-content-center mb-2">
+    <div class="search d-block">
+        <input class="form-control" style="text-align: start; width: 40%; border-radius: 20px; box-shadow: 0 2px 1px rgba(0,0,0,0.09), 
     0 4px 2px rgba(0,0,0,0.09), 
     0 8px 4px rgba(0,0,0,0.09), 
     0 16px 8px rgba(0,0,0,0.09),
-    0 32px 16px rgba(0,0,0,0.09);" type="text" name="search" placeholder="Search" id="found" name="username" (keyup)="searchUsers()" autocomplete="off">
-    <span class="searchButton" (click)="searchUsers()">
-        <i class='bx bx-search-alt' style=" color:#3c4043; font-size: xx-large;"></i>
-    </span>
-</div>
-
-
+    0 32px 16px rgba(0,0,0,0.09);" type="text" placeholder="Search" id="found"
+            name="username" (keyup)="searchUsers()" autocomplete="off">
+        <span class="searchButton" (click)="searchUsers()">
+            <i class='bx bx-search-alt' style=" color:#3c4043; font-size: xx-large;"></i>
+        </span>
+  
+        <div class="search-listing" *ngIf="usersList && open">
+            <div class="list-item" *ngFor="let user of usersList;index as i"
+                (click)="username = user.login;usersList = '';repos = '';getUser()">
+                <img src="{{user.avatar_url}}" alt="Profile Image">
+  
+                <span> {{user.name == null ? user.login : user.name}}</span>
+  
+            </div>
+        </div>
+    </div>
+  
+  </div>
+  

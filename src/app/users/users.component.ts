@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
 
   constructor(public getApiService: GetApiService) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   searchUsers() {

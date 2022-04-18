@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   profile: any;
   repos: any;
-  username: string = 'KellyKiiru';
+  username: string = 'Wess58';
   error: Boolean = false;
   loading = false;
   usersList: any;
@@ -32,13 +32,15 @@ export class AppComponent implements OnInit {
 
   constructor(public getApiService: GetApiService) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   searchUsers() {
     this.getApiService.searchUsers(this.username.split(' ').join('')).subscribe(
       (res) => {
         console.log(res);
+
+        console.log('this has been interesting');
 
         this.usersList = res.body.items;
       },
@@ -67,26 +69,32 @@ export class AppComponent implements OnInit {
 
   getRepos(): void {
     this.getApiService
-      .getUserRepos(this.username.split(" ").join(""))
+      .getUserRepos(this.username.split(' ').join(''))
       .subscribe((res) => {
         this.repos = res.body;
       });
   }
 
   getContributors(): void {
-    this.repos.forEach((repo: { name: string; contributors: any; description: string | null | undefined; }) => {
-      this.getApiService
-        .getContributors(this.username.split(" ").join(""), repo.name)
-        .subscribe((res) => {
-          repo.contributors = res.body;
+    this.repos.forEach(
+      (repo: {
+        name: string;
+        contributors: any;
+        description: string | null | undefined;
+      }) => {
+        this.getApiService
+          .getContributors(this.username.split(' ').join(''), repo.name)
+          .subscribe((res) => {
+            repo.contributors = res.body;
 
-          if (repo.description !== null && repo.description !== undefined) {
-            repo.description = repo.description.replace(
-              /(https?:\/\/[^\s]+)/g,
-              "LINK"
-            );
-          }
-        });
-    });
+            if (repo.description !== null && repo.description !== undefined) {
+              repo.description = repo.description.replace(
+                /(https?:\/\/[^\s]+)/g,
+                'LINK'
+              );
+            }
+          });
+      }
+    );
   }
 }

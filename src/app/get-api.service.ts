@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class GetApiService {
-
   private username: string | undefined;
   constructor(private http: HttpClient) {}
 
@@ -34,6 +33,4 @@ export class GetApiService {
       { observe: 'response' }
     );
   }
-
-  
 }
