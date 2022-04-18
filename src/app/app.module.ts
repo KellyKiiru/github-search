@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
+import { FormComponent } from './form/form.component';
 // import { RepositoriesComponent } from './repositories/repositories.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { UsersComponent } from './users/users.component';
     AppComponent,
     NavbarComponent,
     UsersComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
