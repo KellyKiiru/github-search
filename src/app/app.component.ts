@@ -74,6 +74,19 @@ export class AppComponent implements OnInit {
   }
 
   getContributors(): void {
-    
+    this.repos.forEach((repo: { name: string; contributors: any; description: string | null | undefined; }) => {
+      this.getApiService
+        .getContributors(this.username.split(" ").join(""), repo.name)
+        .subscribe((res) => {
+          repo.contributors = res.body;
+
+          if (repo.description !== null && repo.description !== undefined) {
+            repo.description = repo.description.replace(
+              /(https?:\/\/[^\s]+)/g,
+              "LINK"
+            );
+          }
+        });
+    });
   }
 }
