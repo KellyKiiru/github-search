@@ -9,7 +9,7 @@
                 name="username" autocomplete="off" [(ngModel)]="username" >
         </form>
 
-        <button class="btn btn-info" type="submit">search</button>
+        <button (click)="inputClick(username)" class="btn btn-info" type="submit">search</button>
        
   
         <div class="search-listing" >

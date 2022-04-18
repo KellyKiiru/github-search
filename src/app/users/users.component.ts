@@ -1,6 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetApiService } from '../get-api.service';
-
 
 @Component({
   selector: 'app-users',
@@ -10,7 +9,7 @@ import { GetApiService } from '../get-api.service';
 
 export class UsersComponent implements OnInit {
 
-  username = ''
+  username = 'KellyKiiru'
   
   user!:any;
   repo!:any;
@@ -22,7 +21,12 @@ export class UsersComponent implements OnInit {
     this.username = newUsername;
     this.getRepoData=(newUsername)
     this.getUserData =(newUsername)
-
+    this.getApiService.getUserRepo(this.username).subscribe((repo)=>{
+      this.repo = repo
+      console.log(repo)
+    })
+    this.getApiService.searchUsers(this.username).then((user) =>(this.user = user))
+    console.log(this.username)
   } 
 
   getRepoData(username:string):void{
