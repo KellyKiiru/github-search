@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="row justify-content-center mb-2">
     <div class="search d-block">
         <input class="form-control" style="text-align: start; width: 40%; border-radius: 20px; box-shadow: 0 2px 1px rgba(0,0,0,0.09), 
@@ -23,64 +23,4 @@
     </div>
   
   </div>
-  
-  <div>
 
-    <h3 style="position:fixed;" class="ml-3 font-weight-bold text-muted d-none d-sm-none d-md-block">Profile</h3>
-
-    <div class="card keyInfoCard my-5 px-3 pb-3">
-
-      <img src="{{profile.avatar_url}}" alt="Profile Image">
-
-      <h3> {{profile.name == null ? profile.login : profile.name}}</h3>
-
-      <div *ngIf="profile.bio != null">
-        <h6><strong>BIO</strong></h6>
-        <p class="bio">{{profile.bio}}</p>
-      </div>
-
-      <div>
-        <p *ngIf="profile?.blog?.length !== 0">
-          <i class="fa fa-id-card mr-2"></i>
-          Visit {{profile.name == null ? profile.login : profile.name}}'s
-          <a href="{{profile.blog}}" target="_blank"> Portfolio</a>
-        </p>
-      </div>
-
-      <p *ngIf="profile.location != null ">
-        <i class="fa fa-map-marker-alt mr-2"></i>{{profile.location}}
-      </p>
-      <p>
-        <i class="fab fa-github-square mr-2"></i>
-        <span>Visit {{profile.name == null ? profile.login : profile.name}}'s Github</span>
-        <a href="{{profile.html_url}}" target="_blank"> Profile</a>
-      </p>
-      <p>
-        <i class="fa fa-calendar mr-2"></i>
-        <span><strong>Joined Github : </strong></span>
-        <span>{{profile.created_at | date : 'MMM d, y'}}</span>
-
-      </p>
-
-      <hr>
-
-      <div class="stats-holder">
-        <div class="user-stats">
-          <strong><i class="fa fa-archive mr-2 hide-ms"></i>Repositories</strong>
-          <span>{{profile.public_repos}}</span>
-
-        </div>
-        <div class="user-stats">
-          <strong><i class="fas fa-user-circle mr-2 hide-ms"></i>Following</strong>
-          <span>{{profile.following}}</span>
-
-        </div>
-        <div class="user-stats">
-          <strong><i class="fas fa-user-circle mr-2 hide-ms"></i>Followers</strong>
-          <span>{{profile.followers}}</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
