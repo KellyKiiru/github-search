@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GetApiService } from './get-api.service';
 
@@ -7,22 +7,55 @@ import { GetApiService } from './get-api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'github-search';
+
   profile: any;
   repos: any;
-  username: string | undefined ;
+  username: string = 'KellyKiiru';
   error: Boolean = false;
   loading = false;
   usersList: any;
   open = false;
 
-  constructor(public getApiService: GetApiService){
+  @HostListener('document:click', ['$event']) onClick(event: any) {
+
+    if (event.target.attributes.id) {
+      if (event.target.attributes.id.nodeValue === 'found') {
+        this.open = true;
+      } else {
+        this.open = false;
+      }
+    }else{
+      this.open = false;
+    }
 
   }
 
-  searchUsers(){
-    
+  constructor(public getApiService: GetApiService){
+
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  searchUsers() {
+    this.getApiService.searchUsers(this.username.split(" ").join("")).subscribe(
+      res => {
+
+        console.log(res);
+
+        this.usersList = res.body.items;
+
+
+      },
+      (error) => {
+        this.error = true;
+
+      });
+
+
+
   }
 
   
