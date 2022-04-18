@@ -1,3 +1,11 @@
-<!-- <p class="b">repositories works!</p>
- -->
-
+<div *ngFor="let repo of repo";>
+    <a href="{{repo.html_url}} ">
+     {{repo.html_url}}
+      {{repo.name}}
+  
+      click me
+    </a>
+    <p>{{repo.created_at| date}} Click me</p>
+  
+</div>
+  

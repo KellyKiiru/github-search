@@ -6,7 +6,7 @@ import { lastValueFrom, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GetApiService {
-  
+
   username = 'KellyKiiru';
 
   base_url = 'https://api.github.com';
@@ -23,33 +23,3 @@ export class GetApiService {
   constructor(private http: HttpClient) {}
 }
 
-
-
-
-
-
-// searchUsers(name: string) {
-//   return this.http.get<any>('https://api.github.com/search/users?q=' + name, {
-//     observe: 'response',
-//   });
-// }
-
-// getProfile(name: string) {
-//   return this.http.get<any>('https://api.github.com/users/' + name, {
-//     observe: 'response',
-//   });
-// }
-
-// getUserRepos(name: string) {
-//   return this.http.get<any>(
-//     'https://api.github.com/users/' + name + '/repos?per_page=150',
-//     { observe: 'response' }
-//   );
-// }
-
-// getContributors(name: string, repo: string) {
-//   return this.http.get<any>(
-//     'https://api.github.com/repos/' + name + '/' + repo + '/contributors',
-//     { observe: 'response' }
-//   );
-// }

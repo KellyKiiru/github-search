@@ -8,7 +8,7 @@ import { GetApiService } from '../get-api.service';
 })
 export class RepositoriesComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
 
