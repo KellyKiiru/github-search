@@ -1,25 +1,36 @@
-<app-form (newUsername)="getData($event)" ></app-form>
+<app-form (newUsername)="getData($event)"></app-form>
 
 <div class="container-fluid users">
-  <div class="container">
-    <h1>{{user.login}}</h1>
-    <h2>Followers:{{user.followers}}</h2>
-    <h2>Following:{{user.following}}</h2>
-    <h2>Repos:{{user.public_repos}}</h2>
-    <img src="{{user.avatar_url}}" height="100px"alt="">
-    <a target="blank" href="{{user.html_url}}"><button  > Click me </button></a>
-  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title" style="text-decoration: underline;" >{{ user.login }}</h1>
+          <p class="card-text" >Followers:{{ user.followers }}</p>
+          <p class="card-text" >Following:{{ user.following }}</p>
+          <p class="card-text" >Repos:{{ user.public_repos }}</p>
+          <img style="border-radius: 50%; margin-right: 20px;" src="{{ user.avatar_url }}" height="100px" alt="" />
+          <a target="blank" href="{{ user.html_url }}"><button>Check out {{username}}'s Github</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div *ngFor="let repo of repo">
+        <p>{{ repo.name }}</p>
+        <p>{{ repo.description }}</p>
+        <p>{{ repo.created_at }}</p>
+        <p>{{ repo.language }}</p>
+        <p>{{ repo.fork_count }}</p>
+        <p>{{ repo.stargazers_count }}</p>
+      </div>
+    </div>
   </div>
-  
-  
-  <div *ngFor="let repo of repo">
-  
-    <p>{{repo.html_url}}</p>
-    <p>{{repo.name}}</p>
-    <p>{{repo.description}}</p>
-    <p>{{repo.created_at}}</p>
-    <p>{{repo.language}}</p>
-    <p>{{repo.fork_count}}</p>
-    <p>{{repo.stargazers_count}}</p>
+</div>
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Title</h5>
+    <p class="card-text">Content</p>
   </div>
 </div>
