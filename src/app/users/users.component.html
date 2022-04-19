@@ -19,16 +19,23 @@
     </div>
     <div class="col-md-8">
       <div class="row " >
-        <div class="col-md-5 " *ngFor="let repo of repo">
-          <div class="card">
-            <p appBgColor style="text-decoration: underline" class="card-title">
-              {{ repo.name }}
-            </p>
-            <p  class="card-text">{{ repo.description }}</p>
-            <p class="card-text">{{ repo.created_at | dateAgo }} </p>
-            <p class="card-text">{{ repo.language }}</p>
+        <div class="col-md-5" *ngFor="let repo of repo">
+          <div class="card" style="box-shadow: 0 2px 1px rgba(0,0,0,0.09), 
+          0 4px 2px rgba(0,0,0,0.09), 
+          0 8px 4px rgba(0,0,0,0.09), 
+          0 16px 8px rgba(0,0,0,0.09),
+          0 32px 16px rgba(0,0,0,0.09);padding: 20px;">
+            <h3 appBgColor style="text-decoration: underline;text-align: center;" class="card-title">
+              {{ repo.name | uppercase }}
+            </h3>
+            <p  class="card-text"> Repository Description: {{ repo.description }}</p>
+            <p style="text-align: start;" class="card-text">Created: {{ repo.created_at | dateAgo }} </p>
+            <p class="card-text">Language(s) Used: {{ repo.language }}</p>
             <p class="card-text">{{ repo.fork_count }}</p>
             <p class="card-text">{{ repo.stargazers_count }}</p>
+            <p>
+              <a href="{{repo.url}}">Go to repo </a>
+            </p>
           </div>
           
         </div>
