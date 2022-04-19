@@ -31,10 +31,10 @@
             <p  class="card-text"> Repository Description: {{ repo.description }}</p>
             <p style="text-align: start;" class="card-text">Created: {{ repo.created_at | dateAgo }} </p>
             <p class="card-text">Language(s) Used: {{ repo.language }}</p>
-            <p class="card-text">{{ repo.fork_count }}</p>
-            <p class="card-text">{{ repo.stargazers_count }}</p>
+            <p class="card-text">Forks: {{ repo.fork_count }}</p>
+            <p class="card-text">Stargazers: {{ repo.stargazers_count }}</p>
             <p>
-              <a href="{{repo.url}}">Go to repo </a>
+              <a href="{{repo.repos_url}}">Go to repo </a>
             </p>
           </div>
           
