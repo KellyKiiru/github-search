@@ -1,4 +1,4 @@
-<app-form (newUsername)="getData($event)"></app-form>
+<app-form (newUsername)="getData($event)" ></app-form>
 
 <div class="container-fluid users">
   <div class="row">
@@ -18,17 +18,19 @@
       </div>
     </div>
     <div class="col-md-8">
-      <div class="card " *ngFor="let repo of repo" >
-        <div class="col-md-5 card-body">
-  selector: '[appBgColor]'
-          <p appBgColor style="text-decoration: underline" class="card-title">
-            {{ repo.name }}
-          </p>
-          <p  class="card-text">{{ repo.description }}</p>
-          <p class="card-text">{{ repo.created_at }}</p>
-          <p class="card-text">{{ repo.language }}</p>
-          <p class="card-text">{{ repo.fork_count }}</p>
-          <p class="card-text">{{ repo.stargazers_count }}</p>
+      <div class="row " >
+        <div class="col-md-5 " *ngFor="let repo of repo">
+          <div class="card">
+            <p appBgColor style="text-decoration: underline" class="card-title">
+              {{ repo.name }}
+            </p>
+            <p  class="card-text">{{ repo.description }}</p>
+            <p class="card-text">{{ repo.created_at | dateAgo }} </p>
+            <p class="card-text">{{ repo.language }}</p>
+            <p class="card-text">{{ repo.fork_count }}</p>
+            <p class="card-text">{{ repo.stargazers_count }}</p>
+          </div>
+          
         </div>
 
       </div>

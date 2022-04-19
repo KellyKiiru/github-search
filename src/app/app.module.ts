@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import { FormComponent } from './form/form.component';
 import { BgColorDirective } from './bg-color.directive';
+import { DateAgoPipe } from './dateAgo.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BgColorDirective } from './bg-color.directive';
     UsersComponent,
     FormComponent,
     BgColorDirective,
+    DateAgoPipe,
   ],
   imports: [
     BrowserModule,
