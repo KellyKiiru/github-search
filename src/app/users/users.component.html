@@ -3,34 +3,36 @@
 <div class="container-fluid users">
   <div class="row">
     <div class="col-md-4">
-      <div class="card">
+      <div class="card" >
         <div class="card-body">
-          <h1 class="card-title" style="text-decoration: underline;" >{{ user.login }}</h1>
-          <p class="card-text" >Followers:{{ user.followers }}</p>
-          <p class="card-text" >Following:{{ user.following }}</p>
-          <p class="card-text" >Repos:{{ user.public_repos }}</p>
-          <img style="border-radius: 50%; margin-right: 20px;" src="{{ user.avatar_url }}" height="100px" alt="" />
-          <a target="blank" href="{{ user.html_url }}"><button>Check out {{username}}'s Github</button></a>
+          <h1 class="card-title" style="text-decoration: underline">
+            {{ user.login }}
+          </h1>
+          <p class="card-text">Followers:{{ user.followers }}</p>
+          <p class="card-text">Following:{{ user.following }}</p>
+          <p class="card-text">Repos:{{ user.public_repos }}</p>
+          <img style="border-radius: 50%; margin: 20px; margin-right: 20px" src="{{ user.avatar_url }}" height="100px"
+            alt="" />
+          <a target="blank" href="{{ user.html_url }}"><button>Check out {{ username }}'s Github</button></a>
         </div>
       </div>
     </div>
     <div class="col-md-8">
-      <div *ngFor="let repo of repo">
-        <p>{{ repo.name }}</p>
-        <p>{{ repo.description }}</p>
-        <p>{{ repo.created_at }}</p>
-        <p>{{ repo.language }}</p>
-        <p>{{ repo.fork_count }}</p>
-        <p>{{ repo.stargazers_count }}</p>
+      <div class="card " *ngFor="let repo of repo" >
+        <div style="" class="col-md-5 card-body">
+  selector: '[appBgColor]'
+          <p appBgColor style="text-decoration: underline" class="card-title">
+            {{ repo.name }}
+          </p>
+          <p  class="card-text">{{ repo.description }}</p>
+          <p class="card-text">{{ repo.created_at }}</p>
+          <p class="card-text">{{ repo.language }}</p>
+          <p class="card-text">{{ repo.fork_count }}</p>
+          <p class="card-text">{{ repo.stargazers_count }}</p>
+        </div>
+
       </div>
+
     </div>
-  </div>
-</div>
-
-
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Title</h5>
-    <p class="card-text">Content</p>
   </div>
 </div>

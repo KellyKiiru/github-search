@@ -1,30 +1,27 @@
 <div class="container-fluid">
-    
 
-<div class="row justify-content-center mb-2">
-    <div class="search d-block">
 
-        <form action="" (ngSubmit)="inputClick(username)">
-            <input class="form-control form1" type="search" placeholder="Search" id="found"
-                name="username" autocomplete="off" [(ngModel)]="username" >
-                <button class="btn btn-info" type="submit">search</button>
+  <div class="row justify-content-center mb-2">
+    <div class="search d-block d-flex">
+
+      <div class="col-md-12 " style="justify-content:center; padding:10px; background-color: aqua; ">
+
+        <form style="display: flex; background-color: black;" action="" (ngSubmit)="inputClick(username)">
+          <input class="form-control form1" type="search" placeholder="Search" id="found" name="username"
+            autocomplete="off" [(ngModel)]="username">
+          <!-- <button class="btn btn-info" type="submit">search</button> -->
+          <span class="searchButton">
+            <i (click)="inputClick(username)" class='bx bxs-search-alt-2'
+              style=" position: relative; top: 7px; font-size: xx-large; background: none; border: none; color: #343a40;"></i>
+          </span>
         </form>
 
-        <!-- <button (click)="inputClick(username)" class="btn btn-info" type="submit">search</button> -->
-       
-  
-        <div class="search-listing" >
-            <div class="list-item" >
-                
-  
-                <span> </span>
-  
-            </div>
-        </div>
+      </div>
+
+
+      <!-- <button (click)="inputClick(username)" class="btn btn-info" type="submit">search</button> -->
     </div>
-  
+
   </div>
-   <!-- <span class="searchButton" >
-            <i class='bx bx-search-alt' style=" color:#3c4043; font-size: xx-large;"></i>
-        </span> -->
+
 </div>

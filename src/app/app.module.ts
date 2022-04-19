@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import { FormComponent } from './form/form.component';
+import { BgColorDirective } from './bg-color.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormComponent } from './form/form.component';
     NavbarComponent,
     UsersComponent,
     FormComponent,
+    BgColorDirective,
   ],
   imports: [
     BrowserModule,
