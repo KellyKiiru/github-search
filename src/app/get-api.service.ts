@@ -7,7 +7,7 @@ import { lastValueFrom, Observable } from 'rxjs';
 })
 export class GetApiService {
 
-  username = 'KellyKiiru';
+  username = 'kellykiiru';
 
   base_url = 'https://api.github.com';
 
