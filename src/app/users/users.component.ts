@@ -7,15 +7,14 @@ import { GetApiService } from '../get-api.service';
   styleUrls: ['./users.component.css'],
 })
 
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit {  
+  constructor(private getApiService: GetApiService){
+  }
 
-  username = 'KellyKiiru'
+  username = 'kellykiiru'
   
   user!:any;
   repo!:any;
-
-  constructor(private getApiService:GetApiService){
-  }
 
   getData(newUsername:any):void{
     this.username = newUsername;
